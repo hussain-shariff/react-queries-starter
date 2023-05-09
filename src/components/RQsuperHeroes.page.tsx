@@ -1,4 +1,5 @@
 import useSuperHeroesData from "../hooks/useSuperHeroesData"
+import { Link } from "react-router-dom";
 
 const RQsuperHeroesPage = () => {
   const handleSucess = (data : any) =>{
@@ -19,7 +20,12 @@ const RQsuperHeroesPage = () => {
     <div className=" p-10">
       <h1 className=" underline font-bold">RQsuperHeroes Page</h1>
       { data?.map((user : string)=>(
-        <h1 key={user}>{user}</h1>
+        <div key={user} className=" flex gap-3 items-center mt-2">
+          <h1>{user}</h1>
+          <Link to={'/superHeroDetails'}>
+            <button className="underline">Show Details</button>
+          </Link>
+        </div>
       ))}
       <button onClick={refetch} className=" bg-black text-white py-1 px-4 mt-5">Fetch data</button>
     </div>
