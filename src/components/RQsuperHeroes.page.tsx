@@ -6,7 +6,15 @@ const fetchSuperHeroes = () =>{
 }
 
 const RQsuperHeroesPage = () => {
-  const { isLoading, data, isError, error, isFetching  } = useQuery(
+  const handleSucess = (data : any) =>{
+    console.log('Performing side effects after data fetching', data);
+  }
+  
+  const handleError = (error : any) =>{
+    console.log('Performing side effects after encountering error', error);
+  }
+
+  const { isLoading, data, isError, error, isFetching, refetch  } = useQuery(
     'super-heroes', 
     fetchSuperHeroes,
     {
@@ -17,7 +25,13 @@ const RQsuperHeroesPage = () => {
       // Refetch data everytime the component mounts
       refetchOnMount : true,
       // Automatically refetches data when the backend data changes
-      refetchOnWindowFocus : true
+      refetchOnWindowFocus : true,
+      // disable fetching
+      enabled : false,
+      // Callback function if the data is fetched successfully
+      onSuccess : handleSucess,
+      // Callback function if there are any errors
+      onError : handleError,
     }
   )
 
@@ -31,6 +45,7 @@ const RQsuperHeroesPage = () => {
       { data?.data.map((user)=>(
         <h1 key={user.id}>{user.name}</h1>
       ))}
+      <button onClick={refetch} className=" bg-black text-white py-1 px-4 mt-5">Fetch data</button>
     </div>
   )
 }
