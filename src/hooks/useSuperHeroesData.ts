@@ -27,7 +27,12 @@ const useSuperHeroesData = (handleSucess  : any, handleError  : any) => {
             // Transform the incoming data from the api to the required format
             // example in this case transform to an array of users
             select : (data) =>{
-                const userNames = data.data.map((user : any)=> user.name)
+                const userNames = data.data.map((user : any)=> {
+                    return {
+                        id : user.id,
+                        name : user.name,
+                    }
+                })
                 return userNames
             }
         }

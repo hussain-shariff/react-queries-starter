@@ -19,10 +19,10 @@ const RQsuperHeroesPage = () => {
   return (
     <div className=" p-10">
       <h1 className=" underline font-bold">RQsuperHeroes Page</h1>
-      { data?.map((user : string)=>(
-        <div key={user} className=" flex gap-3 items-center mt-2">
-          <h1>{user}</h1>
-          <Link to={'/superHeroDetails'}>
+      { data?.map((user : any)=>(
+        <div key={user.id} className=" flex gap-3 items-center mt-2">
+          <h1>{user.name}</h1>
+          <Link to={`/superHeroDetails/${user.id}`}>
             <button className="underline">Show Details</button>
           </Link>
         </div>

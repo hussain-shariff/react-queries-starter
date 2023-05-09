@@ -19,7 +19,7 @@ function App() {
             <Route index element={<HomePage/>}></Route>
             <Route path="/superHeroes" element={<SuperHeroesPage/>}></Route>
             <Route path="/RQsuperHeroes" element={<RQsuperHeroesPage/>}></Route>
-            <Route path="/superHeroDetails" element={<SuperHeroesDetailsPage/>}></Route>
+            <Route path="/superHeroDetails/:id" element={<SuperHeroesDetailsPage/>}></Route>
           </Routes>
         </Router>
       <ReactQueryDevtools initialIsOpen={false} position="bottom-right"/>
