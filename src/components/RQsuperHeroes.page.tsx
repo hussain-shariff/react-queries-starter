@@ -10,12 +10,10 @@ const RQsuperHeroesPage = () => {
     'super-heroes', 
     fetchSuperHeroes,
     {
-      cacheTime : 5000
+      cacheTime : 5000,
+      staleTime : 30000
     }
   )
-  
-  console.log(isLoading, isFetching);
-  
 
   if(isLoading) return <h1>Loading...</h1>
 
