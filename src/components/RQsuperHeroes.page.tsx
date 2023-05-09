@@ -32,6 +32,12 @@ const RQsuperHeroesPage = () => {
       onSuccess : handleSucess,
       // Callback function if there are any errors
       onError : handleError,
+      // Transform the incoming data from the api to the required format
+      // example in this case transform to an array of users
+      select : (data) =>{
+        const userNames = data.data.map((user : any)=> user.name)
+        return userNames
+      }
     }
   )
 
@@ -42,8 +48,8 @@ const RQsuperHeroesPage = () => {
   return (
     <div className=" p-10">
       <h1 className=" underline font-bold">RQsuperHeroes Page</h1>
-      { data?.data.map((user)=>(
-        <h1 key={user.id}>{user.name}</h1>
+      { data?.map((user : string)=>(
+        <h1 key={user}>{user}</h1>
       ))}
       <button onClick={refetch} className=" bg-black text-white py-1 px-4 mt-5">Fetch data</button>
     </div>
