@@ -3,6 +3,7 @@ import {useState, useEffect} from "react"
 const SuperHeroesPage = () => {
   const [data, setdata] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState('')
 
   useEffect(()=>{
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -10,10 +11,15 @@ const SuperHeroesPage = () => {
       .then(json=> {
         setdata(json)
         setIsLoading(false)
+        setError('')
       })
+      .catch(err=> setError(err)
+      )
   }, [])
 
   if(isLoading) return <h1>Loading...</h1>
+
+  if(error) return <h1>{error}</h1>
 
   return (
     <div className=" p-10">
