@@ -10,8 +10,14 @@ const RQsuperHeroesPage = () => {
     'super-heroes', 
     fetchSuperHeroes,
     {
+      // Fetched data will be cached for provided time and reused, therby avoiding loading screen
       cacheTime : 5000,
-      staleTime : 30000
+      // Use stale data for the provided time , without making subsequent requests
+      staleTime : 30000,
+      // Refetch data everytime the component mounts
+      refetchOnMount : true,
+      // Automatically refetches data when the backend data changes
+      refetchOnWindowFocus : true
     }
   )
 
