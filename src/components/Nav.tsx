@@ -7,6 +7,7 @@ const Nav = () => {
         <NavElement link="superHeroes" name="Traditional Super Heroes"/>
         <NavElement link="RQsuperHeroes" name="RQ Super Heroes"/>
         <NavElement link="parallelQueries" name="Parallel Queries"/>
+        <NavElement link="DynamicParallelQueries" name="Dynamic Parallel Queries"/>
     </nav>
   )
 }
