@@ -19,10 +19,17 @@ const DynamicParallelQueriesPage = ({userIDS} : DynamicParallelQueriesPageProps)
             }
         })
     )
-    console.log(queryResults);
     
   return (
-    <div>DynamicParallelQueries.page</div>
+    <div className=" p-10">
+        <h1 className=" font-bold underline text-2xl text-center">DynamicParallelQueries Page</h1>
+        <h1 className=" font-bold underline text-2xl mt-5">Users</h1>
+        {
+            queryResults.map(user=>(
+                <h1>{user.data?.data.name}</h1>
+            ))
+        }
+    </div>
   )
 }
 
