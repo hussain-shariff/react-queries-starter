@@ -23,7 +23,7 @@ function App() {
             <Route path="/RQsuperHeroes" element={<RQsuperHeroesPage/>}></Route>
             <Route path="/superHeroDetails/:id" element={<SuperHeroesDetailsPage/>}></Route>
             <Route path="/parallelQueries" element={<ParallelQueriesPage/>}></Route>
-            <Route path="/DynamicParallelQueries" element={<DynamicParallelQueriesPage/>}></Route>
+            <Route path="/DynamicParallelQueries" element={<DynamicParallelQueriesPage userIDS={[1, 2]}/>}></Route>
           </Routes>
         </Router>
       <ReactQueryDevtools initialIsOpen={false} position="bottom-right"/>
